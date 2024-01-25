@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 962d10329cd17a348a415ae7b5b84a07
   nodeName: Dialogue
-  position: {x: 0, y: 161}
+  position: {x: 0.000019073486, y: 124.498985}
   connectedIndex: 0
   hasBeenRun: 0
   child: {fileID: -5172088325349601224}
   dialogueContent:
     character: {fileID: 11400000, guid: 1736a7339404b024386f4f37b52ec25b, type: 2}
-    dialogueLine: 
+    dialogueLine: .
     autoNextLine: 0
 --- !u!114 &-8521222215556022357
 MonoBehaviour:
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: bc056370559129444ab306b6f5cc3f89
   nodeName: Root
-  position: {x: 0, y: 0}
+  position: {x: 0.000019073486, y: -0.0000038146973}
   connectedIndex: 0
   hasBeenRun: 0
   child: {fileID: -8901820981038155324}
@@ -98,11 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 7252f0afb976b23438ab0526aab8dde6
   nodeName: Choice
-  position: {x: 0, y: 287}
+  position: {x: 0.000019073486, y: 258.1033}
   connectedIndex: 0
   hasBeenRun: 0
   child: {fileID: 0}
-  children: []
+  children:
+  - {fileID: 7029829040941189145}
+  - {fileID: -5042560310864332389}
 --- !u!114 &-5042560310864332389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ MonoBehaviour:
   guid: a4fdcb535540bcc4aac51d16fe4b20ff
   nodeName: Dialogue
   position: {x: 14, y: 446}
-  connectedIndex: 0
+  connectedIndex: 1
   hasBeenRun: 0
   child: {fileID: 0}
   dialogueContent:
@@ -169,29 +171,6 @@ MonoBehaviour:
   - {fileID: -770809893488160881}
   - {fileID: 7029829040941189145}
   - {fileID: -5042560310864332389}
-  - {fileID: 3042642069281671104}
---- !u!114 &3042642069281671104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013770d639798554098aa9e4afc49663, type: 3}
-  m_Name: DialogueNode
-  m_EditorClassIdentifier: 
-  guid: 8339d9ae408e269429f2a5c6a8e6b691
-  nodeName: 
-  position: {x: 0, y: 0}
-  connectedIndex: 0
-  hasBeenRun: 0
-  child: {fileID: 0}
-  dialogueContent:
-    character: {fileID: 0}
-    dialogueLine: 
-    autoNextLine: 0
 --- !u!114 &7029829040941189145
 MonoBehaviour:
   m_ObjectHideFlags: 0
