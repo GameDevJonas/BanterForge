@@ -7,11 +7,46 @@ using Object = System.Object;
 
 namespace GDPanda.BanterForge
 {
+    public abstract class DialogueActionListener : MonoBehaviour
+    {
+        protected virtual void OnEnable()
+        {
+            DialogueActions.AddDialogueListener(this);
+        }
+
+        protected virtual void OnDisable()
+        {
+            DialogueActions.RemoveDialogueListener(this);
+        }
+    }
+    
     public class DialogueActions : Singleton<DialogueActions>
     {
-        public static void OnDialogueAction(string actionString)
+        [HideInInspector]
+        [SerializeField]
+        private List<DialogueActionListener> _additionalInstancesToCheckMethodsFrom;
+
+        public static void AddDialogueListener(DialogueActionListener listener)
         {
             var instance = GetInstance();
+            if(instance._additionalInstancesToCheckMethodsFrom.Contains(listener))
+                return;
+            
+            instance._additionalInstancesToCheckMethodsFrom.Add(listener);
+        }
+        
+        public static void RemoveDialogueListener(DialogueActionListener listener)
+        {
+            var instance = GetInstance();
+            if(!instance._additionalInstancesToCheckMethodsFrom.Contains(listener))
+                return;
+            
+            instance._additionalInstancesToCheckMethodsFrom.Remove(listener);
+        }
+        
+        public static void OnDialogueAction(string actionString)
+        {
+            var instance = GetInstance() as object;
             Type thisType = instance.GetType();
 
             string[] methodName = actionString.Split("(");
@@ -19,8 +54,23 @@ namespace GDPanda.BanterForge
             MethodInfo theMethod = thisType.GetMethod(methodName[0]);
             if (theMethod == null)
             {
-                Debug.LogError("Trying to invoke dialogue action on null method!");
-                return;
+                MethodInfo foundAdditionalMethod = null;
+                foreach (var additionalInstance in GetInstance()._additionalInstancesToCheckMethodsFrom)
+                {
+                    var additionalInstanceType = additionalInstance.GetType();
+                    foundAdditionalMethod = additionalInstanceType.GetMethod(methodName[0]);
+                    if(foundAdditionalMethod == null)
+                        continue;
+
+                    theMethod = foundAdditionalMethod;
+                    instance = additionalInstance;
+                }
+                
+                if (theMethod == null)
+                {
+                    Debug.LogError("Trying to invoke dialogue action on null method!");
+                    return;
+                }
             }
             
             string[] cleanParameters = methodName[1].Split(")");

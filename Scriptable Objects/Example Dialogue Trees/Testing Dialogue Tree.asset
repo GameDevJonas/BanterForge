@@ -109,7 +109,7 @@ MonoBehaviour:
   child: {fileID: -4618965690651176042}
   dialogueContent:
     character: {fileID: 11400000, guid: f1e29dca3a1185948b9dcabaa0cc1d45, type: 2}
-    dialogueLine: hey
+    dialogueLine: hey <action=DebugLogInteger(1)>
     autoNextLine: 0
 --- !u!114 &4441931996412298704
 MonoBehaviour:

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GDPanda.Data
 {
-    [DefaultExecutionOrder(-1)]
+    [DefaultExecutionOrder(-100)]
     public class Singleton<T> : MonoBehaviour
     {
         public static T _instance;
