@@ -174,12 +174,12 @@ namespace TMPro
         private bool IsCustomTag(string tag)
         {
             return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("emotion=") ||
-                   tag.StartsWith("action") || tag.StartsWith("charvar=") || tag.StartsWith("charvars=");
+                   tag.StartsWith("action") || tag.StartsWith("charvar=");
         }
 
         private bool ShouldInsertText(string tag)
         {
-            return tag.StartsWith("charvar=") || tag.StartsWith("charvars=");
+            return tag.StartsWith("charvar=");
         }
 
         private WaitForSeconds EvaluateTag(string tag)

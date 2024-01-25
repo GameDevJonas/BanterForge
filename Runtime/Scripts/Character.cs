@@ -73,7 +73,7 @@ namespace GDPanda.BanterForge
             return instantiatedCharacter;
         }*/
         
-        public string GetVariable(string variableName)
+        public virtual string GetVariable(string variableName)
         {
             variableName = variableName.ToLower();
             return variableName switch
@@ -82,8 +82,8 @@ namespace GDPanda.BanterForge
                 /*"personality" => CharacterPersonality.Personality.ToString(),
                 "patience" => CharacterPatience.Patience.ToString(),
                 "goal" => CharacterGoal.Goal.ToString(),
-                "destination" => GetTownDestination(),*/
-                "payment" => null,
+                "destination" => GetTownDestination(),
+                "payment" => null,*/
                 _ => null
             };
         }
