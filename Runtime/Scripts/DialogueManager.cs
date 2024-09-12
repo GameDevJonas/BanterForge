@@ -115,9 +115,12 @@ namespace GDPanda.BanterForge
                 return;
 
             _currentTreeRunner = runner;
-            
-            if(!StartedDialogue)
+
+            if (!StartedDialogue)
+            {
                 StartDialogue();
+                Invoke(nameof(DelayedInteraction), .1f);
+            }
             
             if(!CanContinue || !_noInteractionDelay)
                 return;
