@@ -118,7 +118,8 @@ namespace GDPanda.BanterForge
             
             if(!StartedDialogue)
                 StartDialogue();
-            else if(!CanContinue || !_noInteractionDelay)
+            
+            if(!CanContinue || !_noInteractionDelay)
                 return;
 
             Invoke(nameof(DelayedInteraction), .1f);
