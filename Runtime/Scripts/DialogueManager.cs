@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GDPanda.BanterForge.Tree;
-// using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -393,23 +392,5 @@ namespace GDPanda.BanterForge
             _currentDialogueAnimator.SetBool("Talking", false);
             _currentDialogueAnimator = null;*/
         }
-        
-        // [SerializeField] 
-        // private StudioEventEmitter _popupAudio, _exitAudio, _uiButtonAudio;
-
-        /*public void EnterAudio()
-        {
-            _popupAudio.Play();
-        }
-
-        public void ExitAudio()
-        {
-            _exitAudio.Play();
-        }
-
-        public void UiButtonAudio()
-        {
-            _uiButtonAudio.Play();
-        }*/
     }
 }

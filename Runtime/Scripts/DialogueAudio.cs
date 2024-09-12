@@ -31,8 +31,10 @@ namespace GDPanda.BanterForge
             string charEvent = "event:/Dialogue/" + character;
             if (ContainsSpecialLetter(character))
                 charEvent = "event:/Dialogue/space";
-            
-            // FMODUnity.RuntimeManager.PlayOneShot(charEvent);
+
+#if FMOD
+            FMODUnity.RuntimeManager.PlayOneShot(charEvent);
+#endif
         }
         
         private bool ContainsSpecialLetter(char letter)
@@ -46,8 +48,10 @@ namespace GDPanda.BanterForge
             if (!currentSpeaker)
                 return;
             
-            // FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Character", currentSpeaker.VoiceType);
-            
+#if FMOD
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Character", currentSpeaker.VoiceType);
+#endif
+        
             var emotionString = emotion.ToString();
             
             emotionString = char.ToUpper(emotionString[0]) + emotionString.Substring(1);
@@ -55,17 +59,20 @@ namespace GDPanda.BanterForge
             if (emotionString.Contains("Suprised"))
                 emotionString = "Surprised";
             
-            /*string emotionEvent = "event:/SetMood/Set" + emotionString;
-            FMODUnity.RuntimeManager.PlayOneShot(emotionEvent);*/
+#if FMOD
+            string emotionEvent = "event:/SetMood/Set" + emotionString;
+            FMODUnity.RuntimeManager.PlayOneShot(emotionEvent);
+#endif
         }
         
-        /*private FMOD.RESULT Lookup()
+#if FMOD
+        private FMOD.RESULT Lookup()
        {
            FMOD.RESULT result = RuntimeManager.StudioSystem.getParameterDescriptionByName(_musStateParam, out _musStateParameter);
            return result;
-       }*/
+       }
         
-         /*[SerializeField] 
+         [SerializeField] 
          private StudioEventEmitter _popupAudio, _exitAudio, _uiButtonAudio;
 
          public void EnterAudio()
@@ -81,6 +88,7 @@ namespace GDPanda.BanterForge
          public void UiButtonAudio()
          {
              _uiButtonAudio.Play();
-         }*/
+         }
+#endif
     }
 }
