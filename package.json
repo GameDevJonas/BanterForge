@@ -1,10 +1,10 @@
 {
   "name": "gdpanda.banterforge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "BanterForge",
   "description": "Dialogue System",
   "unity": "2022.3",
-  "unityRelease": "8f1",
+  "unityRelease": "21f1",
   "documentationUrl": "https://jonasss.notion.site/Banter-Forge-ebefa02e1a234d539446a4d1b9008814?pvs=4",
   "changelogUrl": "https://jonasss.notion.site/Banter-Forge-Changelog-4ab67faff5104a21b5b6fb452cfd128e?pvs=4",
   "dependencies": {
