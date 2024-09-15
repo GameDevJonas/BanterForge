@@ -9,7 +9,7 @@ namespace GDPanda.BanterForge.Tree
     public class DialogueTreeRunner : MonoBehaviour
     {
         [SerializeField]
-        private DialogueTree tree;
+        protected DialogueTree tree;
         
         private bool _lookingForChoice;
 
@@ -18,6 +18,11 @@ namespace GDPanda.BanterForge.Tree
             tree = ScriptableObject.CreateInstance<DialogueTree>();
         }*/
 
+        public void SetTree(DialogueTree dialogueTree)
+        {
+            tree = dialogueTree;
+        }
+        
         public void ResetTree()
         {
             tree.ResetNodes();
