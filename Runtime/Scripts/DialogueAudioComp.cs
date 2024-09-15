@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GDPanda.BanterForge
 {
-    public class DialogueAudio : MonoBehaviour
+    public class DialogueAudioComp : MonoBehaviour
     {
         private DialogueAudioHandler _audioHandler;
         
